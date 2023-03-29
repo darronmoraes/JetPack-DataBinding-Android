@@ -6,6 +6,10 @@ android {
     namespace 'com.example.databindingdemo'
     compileSdk 33
 
+    buildFeatures {
+        dataBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.databindingdemo"
         minSdk 24

@@ -1,25 +1,27 @@
 package com.example.databindingdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.databindingdemo.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
-    TextView name, email;
+    // instance of data binding for main activity
+    private ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = findViewById(R.id.id_tv_name);
-        email = findViewById(R.id.id_tv_email);
-
         Person person = new Person("Jack", "jack@gmail.com");
 
-        name.setText(person.getName());
-        email.setText(person.getEmail());
+        // data binding 4 step
+        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        activityMainBinding.setPerson(person);
     }
 }
